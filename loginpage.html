@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="loginpage.css">
+</head>
+<body>
+<form onsubmit="return validateForm()">
+    <div class="imgcontainer">
+        <img src="projecti.jpg" alt="bank logo" class="avatar">
+    </div>
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label><br>
+        <input type="text" placeholder="Enter Username" name="uname" id="uname" required><br><br>
+
+        <label for="psw"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" required><br>
+        <span class="psw"><a href="#">Forgot Password?</a></span><br><br>
+        <button type="submit">Login</button>
+        <div class="remember">
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </div>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <div class="cancel"><button type="button" class="cancelbtn">Cancel</button></div>
+    </div>
+</form>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById("uname").value;
+        var password = document.getElementById("psw").value;
+
+        if (username === "manshi" && password === "12345") {
+          window.location.href = "first1.html"; // Redirect to new page
+          return false; // Prevent form submission
+        } 
+        else {
+          alert("You have entered wrong information. Please try again.");
+          return false; // Prevent form submission
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to XYZ Bank</title>
+    <link rel="stylesheet" href="first.css">
+    <link rel="python"  href="app.py">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to XYZ Bank</h1>
+        <form onsubmit="return validateForm()">
+            <label for="account_number">Account Number:</label><br>
+            <input type="text" id="account_number" name="account_number" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+        <div id="message" style="display:none;"></div>
+    </div>
+    <py-script>
+        class Banking:
+            def __init__(self, acc, passw):
+                self.acc = acc
+                self.passw = passw
+                self.balance = 0
+
+            def bal(self):
+                return self.balance
+
+            def debit(self, amount):
+                self.balance -= amount
+                return self.balance
+
+            def credit(self, amount):
+                self.balance += amount
+                return self.balance
+
+            def transaction(self, acc2, amount, accholder, bankname):
+                if amount <= self.balance:
+                    self.balance -= amount + 16.6
+                    print("Transferred successfully with transfer charge 16.6")
+                    print("Your recent balance is:", self.balance)
+                else:
+                    print("Insufficient funds for the transaction.")
+
+            def loan(self, k):
+                k = int(k)
+                if self.balance >= ((k * 50) / 100):
+                    print("Loan approved. Please come to the branch for further documentation.")
+                else:
+                    print("Sorry! Your loan is not approved.")
+
+    </py-script>
+</body>
+</html>
